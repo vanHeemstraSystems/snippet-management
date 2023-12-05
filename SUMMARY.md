@@ -1,3 +1,3 @@
 # Table of contents
 
-* [Knowledge Management](README.md)
+* [Tools Management](README.md)
