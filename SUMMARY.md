@@ -1,3 +1,3 @@
 # Table of contents
 
-* [Tools Management](README.md)
+* [Snippet Management](README.md)
