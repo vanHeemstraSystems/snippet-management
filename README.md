@@ -1,15 +1,15 @@
-[![Quarto Publish](https://github.com/vanHeemstraSystems/tools-management/actions/workflows/publish.yml/badge.svg)](https://github.com/vanHeemstraSystems/tools-management/actions/workflows/publish.yml)
+[![Quarto Publish](https://github.com/vanHeemstraSystems/snippet-management/actions/workflows/publish.yml/badge.svg)](https://github.com/vanHeemstraSystems/snippet-management/actions/workflows/publish.yml)
 
-tools-management
+snippet-management
 # Tools Management
 
-Can be read as "Tools Management" at https://app.gitbook.com/s/Rs3XPuVclvoj92Exb9AA/
+Can be read as "Snippet Management" at https://app.gitbook.com/s/Rs3XPuVclvoj92Exb9AA/
 
-Can be browsed as "Tools Management" at https://vanheemstrasystems.github.io/tools-management/
+Can be browsed as "Snippet Management" at https://vanheemstrasystems.github.io/snippet-management/
 
 Documentation of this repository is automatically done with Quarto using GitHub Actions as described at https://github.com/vanHeemstraSystems/quarto-to-github-pages/blob/main/300/300/README.md
 
-Based on "IT-Tools.tech" at https://github.com/CorentinTh/it-tools and https://it-tools.tech/
+Based on "Snut" at https://github.com/CorentinTh/snut and https://snut.thomasset.co/
 
 Based on "Instagraph" at https://github.com/yoheinakajima/instagraph
 
@@ -121,7 +121,7 @@ Run as follows:
 
 ```
 $ cd containers/app
-$ docker-compose --file docker-compose.dev.yml --project-name tools-management-dev up --build -d
+$ docker-compose --file docker-compose.dev.yml --project-name snippet-management-dev up --build -d
 ```
 
 **NOTE**: If you get the following error when browsing the Plotly service: 
@@ -144,7 +144,7 @@ Right-Click Servers > Register ... Server:
 
 In tab **General**:
 
-- Name: Use a name like "tools-management-dev" (if for development) - REQUIRED
+- Name: Use a name like "snippet-management-dev" (if for development) - REQUIRED
 
 In tab **Connection**:
 
@@ -164,7 +164,7 @@ In tab **Connection**:
 
 See http://hostname:hasura-port-number/console/data/manage/connect
 
-- Database Display Name: **Tools Management - Dev** (for development)
+- Database Display Name: **Snippet Management - Dev** (for development)
 - Data Source Driver: **Postgres**
 - Connect Database Via: **Database URL**
 - Database URL: **postgresql://username:password@hostname:5432/databasename**, use the value of HASURA_GRAPHQL_DATABASE_URL_DEV/PROD as specified in .env file
@@ -189,9 +189,9 @@ Watch https://www.youtube.com/watch?v=ZGKQ0U18USU
 
 Bookmark https://hasura.io/learn/graphql/hasura/introduction/?pg=oss-console&plcmt=onboarding-checklist
 
-### Define the Schema in Postgres for Our Tools Management Service
+### Define the Schema in Postgres for Our Snippet Management Service
 
-The schema of our tools management service is based on IT-Tools.tech and should follow a nesting alike below:
+The schema of our snippet management service is based on snut and should follow a nesting alike below:
 
 ```
 	[
@@ -263,7 +263,7 @@ Taken together, here is the schema for a map (which combines nodes and links):
   ]
 
 ```
-Example of a schema for an IT tool.
+Example of a schema for a Snippet.
 
 
 Nodes are unique, they can only exist once (with the same unique identifier).
@@ -278,15 +278,15 @@ In creating the tables & views see the following:
 
 - Links schema: see containers/app/postgresql/sql/
 
-- Tools schema: see containers/app/postgresql/sql/
+- Snippet schema: see containers/app/postgresql/sql/
 
-Tools are a collection of nodes and links.
+Snippets are a collection of nodes and links.
 
 In hasura you can - after having connected to the database and tracked the views - now run a query like below to get a JSON output:
 
 ```
-query fetchFirstTool {
-  first_tool: tools_view(where: {name: {_eq: "first"}}) {
+query fetchFirstSnippet {
+  first_snippet: snippets_view(where: {name: {_eq: "first"}}) {
     nodes {
       id
       position
@@ -304,7 +304,7 @@ Example outcome of above query:
 ```
 {
   "data": {
-    "first_tool": [
+    "first_snippet": [
       {
         "nodes": [
           {
@@ -353,7 +353,7 @@ To be more precise in which file(s) to format, for example when in ```containers
 $ npx prettier --write src/app/page.tsx
 ```
 
-It will take the configuration from ```containers/app/it-tools/.prettierrc```
+It will take the configuration from ```containers/app/snut/.prettierrc```
 
 See for documentation on **Prettier**, https://prettier.io/docs/en/index.html
 
