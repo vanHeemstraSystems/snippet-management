@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Tools Management"
+  title: "Snippet Management"
   navbar:
     left:
       - href: index.qmd
