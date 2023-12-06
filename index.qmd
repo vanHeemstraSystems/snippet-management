@@ -1,5 +1,5 @@
 ---
-title: "Tools Management"
+title: "Snippet Management"
 ---
 
 This is a Quarto website.
